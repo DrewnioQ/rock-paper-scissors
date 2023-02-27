@@ -6,7 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock-Paper-Scissors</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+    </style>
+    <script src="script-ui.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <header class="container header">
+      <div class="wrapper">
+        <h1 class="header-title">Rock Paper Scissors</h1>
+      </div>
+    </header>
+    <div class="container content">
+      <div class="wrapper">
+        <section class="rules">
+          <h2 class="rules-text">Choose your weapon</h2>
+          <p class="rules-text-small">
+            First one to score 5 points wins the game!
+          </p>
+        </section>
+        <section class="score">
+          <div class="score-text">Score</div>
+          <div class="score-numbers">
+            <div class="score-player">0</div>
+            <div class="score-computer">0</div>
+          </div>
+        </section>
+        <section class="interface">
+          <div class="player">
+            <button class="button">Rock</button>
+            <button class="button">Paper</button>
+            <button class="button">Scissors</button>
+          </div>
+          <div class="computer">
+            <div class="button">Rock</div>
+            <div class="button">Paper</div>
+            <div class="button">Scissors</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <footer class="container footer">
+      <div class="wrapper">Copyright © kdebski 2023</div>
+    </footer>
+  </body>
 </html>
