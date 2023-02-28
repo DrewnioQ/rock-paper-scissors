@@ -34,8 +34,8 @@ body {
 .header-title {
   font-family: "VT323", monospace;
   color: var(--text-title);
-  font-size: 4rem;
-  padding: 2rem 1rem;
+  font-size: 6rem;
+  margin: 2rem 1rem;
 }
 
 /* CONTENT */
@@ -43,13 +43,16 @@ body {
   background-color: var(--background-regular);
   color: var(--text-light);
 
-  text-align: center;
   flex: auto;
+
+  /* display: flex;
+  flex-direction: column; */
+  text-align: center;
 }
 
 /* RULES */
 .rules {
-  padding: 2rem 1rem;
+  margin: 3rem 1rem;
 }
 
 .rules > * {
@@ -62,6 +65,24 @@ body {
 
 .rules-text-small {
   font-size: 1.25rem;
+}
+
+/* SCORE */
+.scoreboard {
+  font-size: 1.5rem;
+  margin: 2rem 1rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.score {
+  font-weight: 700;
+}
+
+.sign {
+  font-size: 5rem;
 }
 
 /* FOOTER */
