@@ -17,13 +17,12 @@
 body {
   font-family: Inter, Helvetica Neue, Helvetica, Arial, sans-serif;
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
 }
 
 /* SHARED */
-.container {
-  /* width: 100vw; */
-}
-
 .header,
 .footer {
   background-color: var(--background-dark);
@@ -39,22 +38,36 @@ body {
   padding: 2rem 1rem;
 }
 
-.header {
-  text-justify: center;
-}
-
 /* CONTENT */
 .content {
-  flex: auto;
   background-color: var(--background-regular);
   color: var(--text-light);
-  height: 100%;
+
+  text-align: center;
+  flex: auto;
+}
+
+/* RULES */
+.rules {
+  padding: 2rem 1rem;
+}
+
+.rules > * {
+  margin: 1rem 0;
+}
+
+.rules-text {
+  font-size: 3rem;
+}
+
+.rules-text-small {
+  font-size: 1.25rem;
 }
 
 /* FOOTER */
 .footer {
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
   width: 100vw;
 }
 
