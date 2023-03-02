@@ -1,8 +1,8 @@
 :root {
   --background-dark: hsl(222, 11%, 12%);
   --background-regular: hsl(222, 11%, 18%);
-  --background-light: hsl(222, 11%, 30%);
-  --background-light-hover: hsl(222, 11%, 40%);
+  --background-light: hsl(222, 11%, 25%);
+  --background-light-hover: hsl(222, 11%, 35%);
   --text-light: hsl(0, 0%, 85%);
   --text-title: hsl(42, 90%, 65%);
 }
@@ -102,7 +102,7 @@ button {
   display: flex;
   justify-content: center;
 
-  margin: 4rem 1rem;
+  margin: 4rem 1rem 2rem;
 }
 
 .card {
@@ -110,10 +110,9 @@ button {
   border-radius: 0.75rem;
   padding: 2rem;
 
-  max-width: 700px;
-
   display: flex;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 #scissorsBtn {
@@ -126,7 +125,7 @@ button {
   border-radius: 0.35rem;
   padding: 1rem;
 
-  font-size: clamp(2rem, 12vw, 6rem);
+  font-size: clamp(2.25rem, 12vw, 6rem);
 
   flex: 0 1 auto;
 }
@@ -143,4 +142,24 @@ button {
 .footer-text {
   font-size: clamp(1rem, 3vw, 1.2rem);
   padding: 1rem 1rem;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 425px) {
+  .interface {
+    margin-top: 3rem;
+  }
+
+  .scoreboard {
+    padding: 0 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem;
+  }
 }
