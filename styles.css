@@ -42,7 +42,7 @@ button {
 .header-title {
   font-family: "VT323", monospace;
   color: var(--text-title);
-  font-size: 6rem;
+  font-size: clamp(2.75rem, 10vw, 6rem);
   margin: 2rem 1rem;
 }
 
@@ -50,12 +50,9 @@ button {
 .content {
   background-color: var(--background-regular);
   color: var(--text-light);
+  text-align: center;
 
   flex: auto;
-
-  /* display: flex;
-  flex-direction: column; */
-  text-align: center;
 }
 
 /* RULES */
@@ -69,16 +66,15 @@ button {
 }
 
 .rules-text {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5.25vw, 3rem);
 }
 
 .rules-text-small {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.1vw, 1.25rem);
 }
 
 /* SCORE */
 .scoreboard {
-  font-size: 1.5rem;
   margin: 2rem 1rem;
 
   display: flex;
@@ -89,16 +85,15 @@ button {
 .score-computer {
   margin: 0 2rem;
   width: 143px;
-
-  flex: 0 0.8 143px;
 }
 
 .score {
   font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 .sign {
-  font-size: 5rem;
+  font-size: clamp(4rem, 10vw, 5rem);
 }
 
 /* INTERFACE */
@@ -125,7 +120,7 @@ button {
   border-radius: 0.35rem;
   padding: 1rem;
   /* margin: 2rem; */
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   max-width: 107px;
 
   flex: 1 1 auto;
@@ -140,17 +135,13 @@ button {
 }
 
 /* FOOTER */
-.footer {
-  /* width: 100vw; */
-}
-
 .footer-text {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   padding: 1rem 1rem;
 }
 
 /* MEDIA QUERIES */
-@media (max-width: 550px) {
+/* @media (max-width: 550px) {
   .header-title {
     font-size: 2.5rem;
   }
@@ -178,4 +169,4 @@ button {
   .modal {
     width: 95%;
   }
-}
+} */
