@@ -115,7 +115,7 @@ button {
   gap: 2rem;
 }
 
-#scissorsBtn {
+.rotate180 {
   transform: rotate(180deg);
   margin-right: 0;
 }
