@@ -55,7 +55,7 @@ const weapons = {
     icon: "✂️",
     weakTo: "Rock",
     strongTo: "Paper",
-    strongMsg: "Scissors beats Paper",
+    strongMsg: "Scissors beat Paper",
     weakMsg: "Rock beats Scissors",
   },
 };
@@ -107,7 +107,7 @@ function checkRoundWinner(computerChoice, playerChoice) {
 }
 
 function restartGame() {
-  modal.style.scale = 0;
+  modal.classList.remove("modal-containter-active");
 
   playerScore = 0;
   computerScore = 0;
@@ -133,18 +133,17 @@ function displayModal() {
     modalMsg.style.whiteSpace = "nowrap";
     modalMsg.textContent = "You lost 😢";
   }
-
-  modal.style.scale = 1;
+  modal.classList.add("modal-containter-active");
 }
 
 function playRound(button) {
   const computerChoice = getComputerChoice();
   const playerChoice = getPlayerChoice(button);
 
-  updateScore(computerChoice, playerChoice);
   checkRoundWinner(computerChoice, playerChoice);
+  updateScore(computerChoice, playerChoice);
 
-  if (computerScore >= 1 || playerScore >= 1) {
+  if (computerScore >= 5 || playerScore >= 5) {
     displayModal();
   }
 }
