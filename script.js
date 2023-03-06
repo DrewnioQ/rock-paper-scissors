@@ -5,102 +5,145 @@
 // 3. Function playRound() takes playerChoice and computerChoice as arguments. It creates a const variable "weapons" that matches each case with .weakTo or .strongTo cases. Then it compares if playerChoice is .strongTo or .weakTo a computerChoice. Then it alerts a message depending of the roundResult. At last it returns a value roundResult.
 
 // 4. Function game() takes roundNum as an argument. Then it creates a for loop that ends, when roundNum is reached. Each loop prompts user for their choice, generates computer choice and plays a round
+let playerScore = 0;
+let computerScore = 0;
+
+const modal = document.querySelector(".modal-container");
+const modalMsg = document.querySelector(".modal-message");
+const playAgainBtn = document.querySelector(".modal-restart");
+playAgainBtn.addEventListener("click", () => {
+  restartGame();
+});
+
+const playerScoreText = document.getElementById("playerScore");
+const playerScoreSign = document.getElementById("playerSign");
+
+const computerScoreText = document.getElementById("computerScore");
+const computerScoreSign = document.getElementById("computerSign");
+
+const roundResultMessage = document.getElementById("roundResultMessage");
+const roundResultExplanation = document.getElementById(
+  "roundResultExplanation"
+);
+
+const interfaceBtns = document.querySelectorAll(".button-interface");
+interfaceBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    playRound(button);
+  });
+});
+
+const weapons = {
+  Rock: {
+    id: "rockBtn",
+    icon: "🪨",
+    weakTo: "Paper",
+    strongTo: "Scissors",
+    strongMsg: "Rock beats Scissors",
+    weakMsg: "Paper beats Rock",
+  },
+  Paper: {
+    id: "paperBtn",
+    icon: "📄",
+    weakTo: "Scissors",
+    strongTo: "Rock",
+    strongMsg: "Paper beats Rock",
+    weakMsg: "Scissors beat Paper",
+  },
+  Scissors: {
+    id: "scissorsBtn",
+    icon: "✂️",
+    weakTo: "Rock",
+    strongTo: "Paper",
+    strongMsg: "Scissors beat Paper",
+    weakMsg: "Rock beats Scissors",
+  },
+};
 
 function getComputerChoice() {
-  const choices = ["Rock", "Paper", "Scissors"];
+  const choices = Object.keys(weapons);
   const rndNumber = Math.floor(Math.random() * choices.length);
   return choices[rndNumber];
 }
 
-function getPlayerChoice() {
-  let choice = prompt("Please insert your guess [Rock | Paper | Scissors]");
-  try {
-    choice = choice[0].toUpperCase() + choice.slice(1).toLowerCase();
-    return choice;
-  } catch (error) {
-    console.error(error);
+function getPlayerChoice(button) {
+  for (let weapon in weapons) {
+    if (weapons[weapon].id === button.id) {
+      return weapon;
+    }
   }
+  return null;
 }
 
-function playRound(playerChoice, computerChoice) {
-  const weapons = {
-    Rock: {
-      weakTo: "Paper",
-      strongTo: "Scissors",
-      strongMsg: "Rock beats Scissors",
-      weakMsg: "Paper beats Rock",
-    },
-    Paper: {
-      weakTo: "Scissors",
-      strongTo: "Rock",
-      strongMsg: "Paper beats Rock",
-      weakMsg: "Scissors beat Paper",
-    },
-    Scissors: {
-      weakTo: "Rock",
-      strongTo: "Paper",
-      strongMsg: "Scissors beat Paper",
-      weakMsg: "Rock beats Scissors",
-    },
-  };
+function updateScore(computerChoice, playerChoice) {
+  playerScoreSign.classList.remove("rotate180");
+  computerScoreSign.classList.remove("rotate180");
 
-  let resultString = "Something went wrong :(";
-  let roundResult;
+  if (playerChoice === "Scissors") playerScoreSign.classList.add("rotate180");
+  playerScoreSign.textContent = weapons[playerChoice].icon;
+  playerScoreText.textContent = `Player: ${playerScore}`;
 
+  if (computerChoice === "Scissors")
+    computerScoreSign.classList.add("rotate180");
+  computerScoreSign.textContent = weapons[computerChoice].icon;
+  computerScoreText.textContent = `Computer: ${computerScore}`;
+}
+
+function checkRoundWinner(computerChoice, playerChoice) {
   if (weapons[playerChoice].strongTo === computerChoice) {
-    resultString = `You win 😃 ${weapons[playerChoice].strongMsg}`;
-    console.log(resultString);
-    return (roundResult = 1);
+    roundResultMessage.textContent = "You win this round 😃";
+    roundResultExplanation.textContent = `${weapons[playerChoice].strongMsg}`;
+    playerScore++;
   }
   if (weapons[playerChoice].weakTo === computerChoice) {
-    resultString = `You lose 😢 ${weapons[playerChoice].weakMsg}`;
-    console.log(resultString);
-    return (roundResult = -1);
+    roundResultMessage.textContent = "You lose this round 😢";
+    roundResultExplanation.textContent = `${weapons[playerChoice].weakMsg}`;
+    computerScore++;
   }
   if (playerChoice === computerChoice) {
-    resultString = `TIE 🤨`;
-    console.log(resultString);
-    return (roundResult = 0);
-  }
-
-  return resultString;
-}
-
-function game(roundsToWin) {
-  let isScoreReached = false;
-  let playerScore = 0;
-  let computerScore = 0;
-  let roundNum = 1;
-
-  while (!isScoreReached) {
-    console.log(`Round: ${roundNum}`);
-    console.log(`User ${playerScore} : ${computerScore} Computer`);
-    const computerChoice = getComputerChoice();
-    const playerChoice = getPlayerChoice();
-    const result = playRound(playerChoice, computerChoice);
-
-    switch (result) {
-      case -1:
-        computerScore++;
-        roundNum++;
-        break;
-      case 0:
-        roundNum++;
-        break;
-      case 1:
-        roundNum++;
-        playerScore++;
-        break;
-    }
-
-    if (computerScore >= roundsToWin || playerScore >= roundsToWin) {
-      isScoreReached = true;
-      const finalScore = `Final Score:
-User ${playerScore} : ${computerScore} Computer`;
-      console.log(finalScore);
-      break;
-    }
+    roundResultMessage.textContent = "TIE 🤨";
+    roundResultExplanation.textContent = "Keep playing!";
   }
 }
 
-game(1);
+function restartGame() {
+  modal.classList.remove("modal-containter-active");
+
+  playerScore = 0;
+  computerScore = 0;
+
+  roundResultMessage.textContent = "Choose your weapon";
+  roundResultExplanation.innerHTML =
+    'First one to score <span class="roundsNum">5</span> points wins the game!';
+
+  playerScoreSign.textContent = "?";
+  playerScoreSign.classList.remove("rotate180");
+  playerScoreText.textContent = "Player: 0";
+
+  computerScoreSign.textContent = "?";
+  computerScoreSign.classList.remove("rotate180");
+  computerScoreText.textContent = "Computer: 0";
+}
+
+function displayModal() {
+  if (playerScore > computerScore) {
+    modalMsg.style.whiteSpace = "normal";
+    modalMsg.textContent = "Congratulations! You won 😃";
+  } else if (playerScore < computerScore) {
+    modalMsg.style.whiteSpace = "nowrap";
+    modalMsg.textContent = "You lost 😢";
+  }
+  modal.classList.add("modal-containter-active");
+}
+
+function playRound(button) {
+  const computerChoice = getComputerChoice();
+  const playerChoice = getPlayerChoice(button);
+
+  checkRoundWinner(computerChoice, playerChoice);
+  updateScore(computerChoice, playerChoice);
+
+  if (computerScore >= 5 || playerScore >= 5) {
+    displayModal();
+  }
+}
