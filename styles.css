@@ -27,7 +27,14 @@ body {
 button {
   border: none;
   cursor: pointer;
-  color: var(--text-light);
+}
+
+button:hover {
+  background-color: var(--background-light);
+}
+
+button:active {
+  background-color: var(--background-light-hover);
 }
 
 /* SHARED */
@@ -36,6 +43,56 @@ button {
   background-color: var(--background-dark);
   text-align: center;
   color: var(--text-light);
+}
+
+/* MODAL */
+.modal-container {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 200ms ease-in-out;
+  scale: 0;
+  /* display: none; */
+}
+
+.modal-message-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  max-width: 596px;
+
+  padding: 1.75rem 3rem;
+  border-radius: 0.75rem;
+  background-color: var(--background-regular);
+  -webkit-box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 1);
+
+  text-align: center;
+}
+
+.modal-message {
+  font-size: clamp(2rem, 9.5vw, 4rem);
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+  user-select: none;
+}
+
+.modal-restart {
+  border-radius: 0.35rem;
+  padding: 0.75rem 1rem;
+  user-select: none;
+
+  background-color: var(--background-dark);
+  color: var(--text-title);
+  font-size: clamp(1.25rem, 5vw, 2rem);
 }
 
 /* HEADER */
@@ -71,6 +128,12 @@ button {
 
 .rules-text-small {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+.roundsNum {
+  color: var(--text-title);
+  font-weight: 900;
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
 }
 
 /* SCORE */
@@ -120,22 +183,15 @@ button {
   margin-right: 0;
 }
 
-.button {
+.button-interface {
   background-color: var(--background-regular);
   border-radius: 0.35rem;
   padding: 1rem;
+  user-select: none;
 
   font-size: clamp(2.25rem, 12vw, 6rem);
 
   flex: 0 1 auto;
-}
-
-.player .button:hover {
-  background-color: var(--background-light);
-}
-
-.player .button:active {
-  background-color: var(--background-light-hover);
 }
 
 /* FOOTER */
@@ -146,6 +202,10 @@ button {
 
 /* MEDIA QUERIES */
 @media (max-width: 425px) {
+  .modal-message-box {
+    padding: 1rem 1.5rem;
+  }
+
   .interface {
     margin-top: 3rem;
   }

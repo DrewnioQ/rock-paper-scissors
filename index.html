@@ -12,6 +12,12 @@
     <script src="script-ui.js" defer></script>
   </head>
   <body>
+    <div class="modal-container">
+      <div class="modal-message-box">
+        <h2 class="modal-message">Lorem ipsum</h2>
+        <button class="modal-restart">Play again</button>
+      </div>
+    </div>
     <header class="container header">
       <h1 class="header-title">Rock Paper Scissors</h1>
     </header>
@@ -19,7 +25,8 @@
       <section class="rules">
         <h2 class="rules-text" id="roundResultMessage">Choose your weapon</h2>
         <p class="rules-text-small" id="roundResultExplanation">
-          First one to score 5 points wins the game!
+          First one to score <span class="roundsNum">5</span> points wins the
+          game!
         </p>
       </section>
       <section class="scoreboard">
@@ -34,9 +41,11 @@
       </section>
       <section class="interface">
         <div class="card player">
-          <button class="button" id="rockBtn">🪨</button>
-          <button class="button" id="paperBtn">📄</button>
-          <button class="button rotate180" id="scissorsBtn">✂️</button>
+          <button class="button-interface" id="rockBtn">🪨</button>
+          <button class="button-interface" id="paperBtn">📄</button>
+          <button class="button-interface rotate180" id="scissorsBtn">
+            ✂️
+          </button>
         </div>
         <!-- <div class="card computer">
           <div class="button">Rock</div>
