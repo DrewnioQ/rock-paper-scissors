@@ -16,6 +16,7 @@ buttons.forEach((button) => {
 const weapons = {
   Rock: {
     name: "Rock",
+    id: "rockBtn",
     weakTo: "Paper",
     strongTo: "Scissors",
     strongMsg: "Rock beats Scissors",
@@ -23,6 +24,7 @@ const weapons = {
   },
   Paper: {
     name: "Paper",
+    id: "paperBtn",
     weakTo: "Scissors",
     strongTo: "Rock",
     strongMsg: "Paper beats Rock",
@@ -30,6 +32,7 @@ const weapons = {
   },
   Scissors: {
     name: "Scissors",
+    id: "scissorsBtn",
     weakTo: "Rock",
     strongTo: "Paper",
     strongMsg: "Scissors beats Paper",
@@ -43,9 +46,16 @@ function getComputerChoice() {
   return weapons[choices[rndNumber]].name;
 }
 
-function getPlayerChoice(button) {}
+function getPlayerChoice(button) {
+  for (let weapon in weapons) {
+    if (weapons[weapon].id === button.id) {
+      return weapons[weapon].name;
+    }
+  }
+  return null;
+}
 
 function playRound(button) {
   const computerChoice = getComputerChoice();
-  console.log(computerChoice);
+  const playerChoice = getPlayerChoice(button);
 }
