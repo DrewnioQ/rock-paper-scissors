@@ -1,0 +1,51 @@
+@use "../abstracts/" as *;
+
+:root {
+  --background-dark: hsl(222, 11%, 12%);
+  --background-regular: hsl(222, 11%, 18%);
+  --background-light: hsl(222, 11%, 25%);
+  --background-light-hover: hsl(222, 11%, 35%);
+  --text-light: hsl(0, 0%, 85%);
+  --text-title: hsl(42, 90%, 65%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 425px) {
+  .modal-message-box {
+    padding: 1rem 1.5rem;
+  }
+
+  .interface {
+    margin-top: 3rem;
+  }
+
+  .scoreboard {
+    padding: 0 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem;
+  }
+}

@@ -1,0 +1,12 @@
+.header {
+  background-color: var(--background-dark);
+  text-align: center;
+  color: var(--text-light);
+}
+
+.header-title {
+  font-family: "VT323", monospace;
+  color: var(--text-title);
+  font-size: clamp(2.75rem, 10vw, 5rem);
+  margin: 2rem 1rem;
+}
