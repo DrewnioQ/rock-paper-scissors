@@ -18,7 +18,7 @@
   font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
-.github-link {
+.github-icon {
   filter: invert(1);
 
   height: auto;
@@ -27,6 +27,6 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.github-link:hover {
+.github-icon:hover {
   transform: scale(1.2);
 }
