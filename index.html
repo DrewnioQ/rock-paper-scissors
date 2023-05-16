@@ -5,16 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock-Paper-Scissors</title>
-    <link rel="stylesheet" href="styles.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
-    </style>
-    <script src="script.js" defer></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/sass/style.scss" />
+    <script type="module" src="src/js/main.js" defer></script>
   </head>
   <body>
     <div class="modal-container">
       <div class="modal-message-box">
-        <h2 class="modal-message">Lorem ipsum</h2>
+        <h2 class="modal-message"></h2>
         <button class="modal-restart">Play again</button>
       </div>
     </div>
@@ -50,9 +58,13 @@
       </section>
     </main>
     <footer class="container footer">
-      <p class="footer-text">Copyright © konraddebski 2023</p>
+      <p class="footer-text">&copy; Konrad Dębski 2023</p>
       <a href="https://github.com/DrewnioQ" target="_blank">
-        <img class="github-link" src="./icons/github.svg" alt="GitHub link" />
+        <img
+          class="github-icon"
+          src="src/assets/svg/github.svg"
+          alt="GitHub icon"
+        />
       </a>
     </footer>
   </body>

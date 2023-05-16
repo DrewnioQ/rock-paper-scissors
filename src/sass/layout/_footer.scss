@@ -1,0 +1,32 @@
+.footer {
+}
+
+.footer {
+  background-color: var(--background-dark);
+  text-align: center;
+  color: var(--text-light);
+  padding: 1rem 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-text {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.github-icon {
+  filter: invert(1);
+
+  height: auto;
+  width: 1.5rem;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.github-icon:hover {
+  transform: scale(1.2);
+}

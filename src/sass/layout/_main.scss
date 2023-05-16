@@ -1,0 +1,89 @@
+.content {
+  background-color: var(--background-regular);
+  color: var(--text-light);
+  text-align: center;
+
+  flex: auto;
+}
+
+/* RULES */
+.rules {
+  margin: 2rem 1rem;
+}
+
+.rules-text,
+.rules-text-small {
+  margin: 1rem 0;
+}
+
+.rules-text {
+  font-size: clamp(2.15rem, 6vw, 2.5rem);
+}
+
+.rules-text-small {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+.roundsNum {
+  color: var(--text-title);
+  font-weight: 900;
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+}
+
+/* SCORE */
+.scoreboard {
+  margin: 2rem auto;
+  max-width: 600px;
+
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+.score-box {
+  flex: 0 1 170px;
+}
+
+.score {
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+}
+
+.sign {
+  font-size: clamp(4rem, 12vw, 6rem);
+}
+
+/* INTERFACE */
+.interface {
+  display: flex;
+  justify-content: center;
+
+  margin: 4rem 1rem 2rem;
+}
+
+.card {
+  background-color: var(--background-dark);
+  border-radius: 0.75rem;
+  padding: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+  margin-right: 0;
+}
+
+.button-interface {
+  background-color: var(--background-regular);
+  border-radius: 0.35rem;
+  padding: 1rem;
+  user-select: none;
+
+  font-size: clamp(2.25rem, 12vw, 6rem);
+
+  flex: 0 1 auto;
+}
