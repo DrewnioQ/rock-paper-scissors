@@ -7,14 +7,14 @@
   width: 100%;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.6);
-  transition: 200ms ease-in-out;
   scale: 0;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .modal-containter-active {
+  transition: 200ms ease-in-out;
   scale: 1;
-  opacity: 1;
+  visibility: visible;
 }
 
 .modal-message-box {
